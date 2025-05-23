@@ -11,12 +11,13 @@ import {
 import inCallManager from 'react-native-incall-manager';
 
 const StreamingScreen = () => {
+  
   useEffect(() => {
     inCallManager.start({media: 'video'});
     return () => {
       inCallManager.stop();
     };
-  });
+  }, []);
 
   return (
     <SafeAreaView style={{flex: 1}}>
