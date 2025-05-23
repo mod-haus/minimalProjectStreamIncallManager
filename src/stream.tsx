@@ -1,24 +1,15 @@
 import {ActivityIndicator, SafeAreaView} from 'react-native';
 import {useVideoClient} from './client';
 import CONFIG from './client/config';
-import {Suspense, useEffect} from 'react';
+import {Suspense} from 'react';
 import {
   StreamCall,
   StreamVideo,
   useCallStateHooks,
   VideoRenderer,
 } from '@stream-io/video-react-native-sdk';
-import inCallManager from 'react-native-incall-manager';
 
 const StreamingScreen = () => {
-  
-  useEffect(() => {
-    inCallManager.start({media: 'video'});
-    return () => {
-      inCallManager.stop();
-    };
-  }, []);
-
   return (
     <SafeAreaView style={{flex: 1}}>
       <Suspense
