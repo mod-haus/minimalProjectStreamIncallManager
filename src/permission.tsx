@@ -12,10 +12,13 @@ const Permission = {
     requestMultiple(
       Platform.select({
         ios: [PERMISSIONS.IOS.CAMERA, PERMISSIONS.IOS.MICROPHONE],
-        android: [
+        android: Number(Platform.Version) >= 33 ? [
           PERMISSIONS.ANDROID.CAMERA,
           PERMISSIONS.ANDROID.RECORD_AUDIO,
           PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+        ] : [
+          PERMISSIONS.ANDROID.CAMERA,
+          PERMISSIONS.ANDROID.RECORD_AUDIO,
         ],
         default: [],
       }),
@@ -24,10 +27,13 @@ const Permission = {
     checkMultiple(
       Platform.select({
         ios: [PERMISSIONS.IOS.CAMERA, PERMISSIONS.IOS.MICROPHONE],
-        android: [
+        android: Number(Platform.Version) >= 33 ? [
           PERMISSIONS.ANDROID.CAMERA,
           PERMISSIONS.ANDROID.RECORD_AUDIO,
           PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+        ] : [
+          PERMISSIONS.ANDROID.CAMERA,
+          PERMISSIONS.ANDROID.RECORD_AUDIO,
         ],
         default: [],
       }),
